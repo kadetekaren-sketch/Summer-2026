@@ -19,13 +19,16 @@ public class GuessingGame {
             System.out.print("Enter your guess: ");
             guess = scanner.nextInt();
             attempts++;
+            int remainingAttempts = maxAttempts - attempts;
            if (attempts == maxAttempts){
                 System.out.println("Sorry, you've used all your attempts. The number was " + secretNumber);
             }
             else if (guess < secretNumber) {
                 System.out.println("Too low! Try again.");
+                System.out.println("You have " + remainingAttempts + " attempts left.");
             } else if (guess > secretNumber) {
                 System.out.println("Too high! Try again.");
+                System.out.println("You have " + remainingAttempts + " attempts left.");
             } 
             else {
                 System.out.println("Correct! You got it in " + attempts + " attempts!");
