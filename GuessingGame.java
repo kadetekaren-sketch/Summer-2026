@@ -6,15 +6,18 @@ public class GuessingGame {
         
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        
+        String playAgain = "yes";
+        while (playAgain.equals("yes")) {
         int secretNumber = random.nextInt(50) + 1;
         int guess = 0;
         int attempts = 0;
         int maxAttempts = 7;
+        
 
         System.out.println("Welcome to the Guessing Game!");
         System.out.println("I'm thinking of a number between 1 and 50.");
-
+        
+        
         while (guess != secretNumber ) {
             System.out.print("Enter your guess: ");
             guess = scanner.nextInt();
@@ -22,6 +25,7 @@ public class GuessingGame {
             int remainingAttempts = maxAttempts - attempts;
            if (attempts == maxAttempts){
                 System.out.println("Sorry, you've used all your attempts. The number was " + secretNumber);
+                break;
             }
             else if (guess < secretNumber) {
                 System.out.println("Too low! Try again.");
@@ -34,6 +38,9 @@ public class GuessingGame {
                 System.out.println("Correct! You got it in " + attempts + " attempts!");
             }
         }
+        System.out.print("Play again? (yes/no): ");
+        playAgain = scanner.next();
+    }
 
         scanner.close();
     }
