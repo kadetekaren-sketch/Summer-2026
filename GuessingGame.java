@@ -40,8 +40,12 @@ public class GuessingGame {
         }
         System.out.print("Play again? (yes/no): ");
         playAgain = scanner.next();
+        if (guess == secretNumber) {
+        int score = (maxAttempts - attempts + 1) * 10;
+         System.out.println("You got it in " + attempts + " attempts! Score: " + score);
+        }
     }
-
         scanner.close();
+
     }
 }
