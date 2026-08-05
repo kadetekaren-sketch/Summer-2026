@@ -44,6 +44,15 @@ public class GuessingGame {
         int score = (maxAttempts - attempts + 1) * 10;
          System.out.println("You got it in " + attempts + " attempts! Score: " + score);
         }
+        if (attempts == 1) {
+    System.out.println("Insane! First try!");
+} else if (attempts <= 3) {
+    System.out.println("Amazing guess!");
+} else if (attempts <= 5) {
+    System.out.println("Nice work!");
+} else {
+    System.out.println("You got it!");
+}
     }
         scanner.close();
 
