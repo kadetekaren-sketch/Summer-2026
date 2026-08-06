@@ -13,6 +13,7 @@ public class SortingVisualiser {
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
                 }
+                System.out.println(Arrays.toString(array));
             }
         }
     }
