@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class SortingVisualiser {
 
@@ -38,8 +39,19 @@ public class SortingVisualiser {
 }
 
     public static void main(String[] args) {
-        int[] array1 = {64, 34, 25, 12, 22, 11, 90};
-        int[] array2 = {64, 34, 25, 12, 22, 11, 90};
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("How many numbers do you want to enter? ");
+        int size = scanner.nextInt();
+        int[] array1 = new int[size];
+        int[] array2 = new int[size];
+        System.out.println("Enter the numbers for the first array:");
+        for (int i = 0; i < size; i++) {
+            array1[i] = scanner.nextInt();
+        }
+        System.out.println("Enter the numbers for the second array:");
+        for (int i = 0; i < size; i++) {
+            array2[i] = scanner.nextInt();
+        }
         System.out.println("Before: " + Arrays.toString(array1));
         bubbleSort(array1);
         System.out.println("After: " + Arrays.toString(array1));
