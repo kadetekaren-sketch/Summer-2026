@@ -39,6 +39,7 @@ public class SortingVisualiser {
 }
 
     public static void main(String[] args) {
+        
         Scanner scanner = new Scanner(System.in);
         System.out.print("How many numbers do you want to enter? ");
         int size = scanner.nextInt();
@@ -60,5 +61,20 @@ public class SortingVisualiser {
     System.out.println("Before: " + Arrays.toString(array2));
     selectionSort(array2);
     System.out.println("After: " + Arrays.toString(array2));
+    int bubbleSwaps = 0;
+    int selectionSwaps = 0;
+    System.out.println("\n=== Summary ===");
+System.out.println("Bubble Sort: " + bubbleSwaps + " swaps");
+System.out.println("Selection Sort: " + selectionSwaps + " swaps");
+
+if (bubbleSwaps < selectionSwaps) {
+    System.out.println("Winner: Bubble Sort!");
+} else if (selectionSwaps < bubbleSwaps) {
+    System.out.println("Winner: Selection Sort!");
+} else {
+    System.out.println("It's a tie!");
+}
+scanner.close();
+
     }
 }
