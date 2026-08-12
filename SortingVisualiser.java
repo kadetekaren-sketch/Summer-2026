@@ -3,13 +3,13 @@ import java.util.Scanner;
 
 public class SortingVisualiser {
 
-    static void bubbleSort(int[] array) {
+    static int bubbleSort(int[] array) {
         int n = array.length;
-        
+        int swapCount = 0;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 if (array[j] > array[j + 1]) {
-                    // swap
+                    swapCount++;
                     int temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
@@ -17,10 +17,12 @@ public class SortingVisualiser {
                 System.out.println(Arrays.toString(array));
             }
         }
+        return swapCount;
     }
-    static void selectionSort(int[] array) {
+    static int selectionSort(int[] array) {
     int n = array.length;
-    
+    int swapCount = 0;
+
     for (int i = 0; i < n - 1; i++) {
         int minIndex = i;
         
@@ -29,13 +31,14 @@ public class SortingVisualiser {
                 minIndex = j;
             }
         }
-        
+        swapCount++;
         
         int temp = array[i];
         array[i] = array[minIndex];
         array[minIndex] = temp;
         System.out.println(Arrays.toString(array));
     }
+    return swapCount;
 }
 
     public static void main(String[] args) {
@@ -54,18 +57,16 @@ public class SortingVisualiser {
             array2[i] = scanner.nextInt();
         }
         System.out.println("Before: " + Arrays.toString(array1));
-        bubbleSort(array1);
+        int bubbleSwaps = bubbleSort(array1);
         System.out.println("After: " + Arrays.toString(array1));
 
         System.out.println("\n=== Selection Sort ===");
-    System.out.println("Before: " + Arrays.toString(array2));
-    selectionSort(array2);
-    System.out.println("After: " + Arrays.toString(array2));
-    int bubbleSwaps = 0;
-    int selectionSwaps = 0;
+        System.out.println("Before: " + Arrays.toString(array2));
+        int selectionSwaps = selectionSort(array2);
+        System.out.println("After: " + Arrays.toString(array2));
     System.out.println("\n=== Summary ===");
-System.out.println("Bubble Sort: " + bubbleSwaps + " swaps");
-System.out.println("Selection Sort: " + selectionSwaps + " swaps");
+    System.out.println("Bubble Sort: " + bubbleSwaps + " swaps");
+    System.out.println("Selection Sort: " + selectionSwaps + " swaps");
 
 if (bubbleSwaps < selectionSwaps) {
     System.out.println("Winner: Bubble Sort!");
