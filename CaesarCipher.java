@@ -7,5 +7,29 @@ public class CaesarCipher {
         String word = scanner.nextLine();
         System.out.println("Enter shift number ");
         int number = scanner.nextInt();
+
+        String encrypted = "";
+        for (int i = 0; i < word.length(); i++) {
+          char c = word.charAt(i);
+          if (Character.isLetter(c)) {
+          char shifted = (char) (c + number);
+           encrypted += shifted;
+          } else {
+        encrypted += c;
+    }
+}
+      System.out.println("Encrypted: " + encrypted);
+
+      String decrypted = "";
+for (int i = 0; i < encrypted.length(); i++) {
+    char c = encrypted.charAt(i);
+    if (Character.isLetter(c)) {
+        char shifted = (char) (c - number);
+        decrypted += shifted;
+    } else {
+        decrypted += c;
+    }
+}
+System.out.println("Decrypted: " + decrypted);
     }
 }
