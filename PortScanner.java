@@ -12,6 +12,16 @@ public class PortScanner {
         int endPort = scanner.nextInt();
         
         System.out.println("\nScanning " + host + " from port " + startPort + " to " + endPort);
+        for (int port = startPort; port <= endPort; port++) {
+    try {
+        Socket socket = new Socket(host, port);
+        System.out.println("Port " + port + " is OPEN ✓");
+        socket.close();
+    } catch (Exception e) {
+        // port is closed, don't print anything
+    }
+}
+System.out.println("Scan complete!");
         scanner.close();
     }
 }
